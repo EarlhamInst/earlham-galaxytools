@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Slash Command Dispatch
-        if: github.repository_owner == 'TGAC'
+        if: github.repository_owner == 'EarlhamInst'
         uses: peter-evans/slash-command-dispatch@v4
         with:
           token: ${{ secrets.PAT }}

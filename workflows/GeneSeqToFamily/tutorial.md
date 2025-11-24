@@ -7,7 +7,7 @@ If you are new to Galaxy then get familiarised with Galaxy using [slides](https:
 
 ## GeneSeqToFamily workflow
 
-The GeneSeqToFamily workflow can be either installed from the Galaxy ToolShed, or downloaded from https://github.com/TGAC/earlham-galaxytools/tree/master/workflows/GeneSeqToFamily and then imported into a local Galaxy or a public instance where the necessary tools are installed, e.g. [Galaxy Europe](https://usegalaxy.eu).
+The GeneSeqToFamily workflow can be either installed from the Galaxy ToolShed, or downloaded from https://github.com/EarlhamInst/earlham-galaxytools/tree/main/workflows/GeneSeqToFamily and then imported into a local Galaxy or a public instance where the necessary tools are installed, e.g. [Galaxy Europe](https://usegalaxy.eu).
 
 
 # Importing input data

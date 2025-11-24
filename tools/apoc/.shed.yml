@@ -5,5 +5,5 @@ homepage_url: https://sites.gatech.edu/cssb/apoc/
 long_description: Compare protein pockets using APoc (Alignment of Pockets)
 name: apoc
 owner: earlhaminst
-remote_repository_url: https://github.com/TGAC/earlham-galaxytools/tree/main/tools/apoc/
+remote_repository_url: https://github.com/EarlhamInst/earlham-galaxytools/tree/main/tools/apoc/
 type: unrestricted

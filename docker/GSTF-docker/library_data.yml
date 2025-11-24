@@ -1,17 +1,17 @@
 libraries:
     - name: "Test data for workflow"
       files:
-        - url: https://raw.githubusercontent.com/TGAC/earlham-galaxytools/master/workflows/GeneSeqToFamily/test-data/CDS.fasta
+        - url: https://raw.githubusercontent.com/EarlhamInst/earlham-galaxytools/main/workflows/GeneSeqToFamily/test-data/CDS.fasta
           file_type: fasta
-        - url: https://github.com/TGAC/earlham-galaxytools/raw/master/tools/gstf_preparation/test-data/test4.sqlite
+        - url: https://github.com/EarlhamInst/earlham-galaxytools/raw/main/tools/gstf_preparation/test-data/test4.sqlite
           file_type: sqlite
-        - url: https://raw.githubusercontent.com/TGAC/earlham-galaxytools/master/workflows/GeneSeqToFamily/test-data/species.nhx
+        - url: https://raw.githubusercontent.com/EarlhamInst/earlham-galaxytools/main/workflows/GeneSeqToFamily/test-data/species.nhx
           file_type: nhx
     - name: "Test data for GSTF preparation"
       files:
-        - url: https://raw.githubusercontent.com/TGAC/earlham-galaxytools/master/tools/gstf_preparation/test-data/CDS.fasta
+        - url: https://raw.githubusercontent.com/EarlhamInst/earlham-galaxytools/main/tools/gstf_preparation/test-data/CDS.fasta
           file_type: fasta
-        - url: https://raw.githubusercontent.com/TGAC/earlham-galaxytools/master/tools/gstf_preparation/test-data/gene.json
+        - url: https://raw.githubusercontent.com/EarlhamInst/earlham-galaxytools/main/tools/gstf_preparation/test-data/gene.json
           file_type: json
 
     # Example of loading data from Ensembl  

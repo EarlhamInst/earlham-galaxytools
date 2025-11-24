@@ -5,5 +5,5 @@ homepage_url: https://treesoft.sourceforge.net/treebest.shtml
 long_description: Generate a phylogenetic tree using CDS alignment and species tree.
 name: treebest_best
 owner: earlhaminst
-remote_repository_url: https://github.com/TGAC/earlham-galaxytools/tree/main/tools/TreeBest
+remote_repository_url: https://github.com/EarlhamInst/earlham-galaxytools/tree/main/tools/TreeBest
 type: unrestricted

@@ -1,7 +1,7 @@
-homepage_url: https://github.com/TGAC/earlham-galaxytools/
+homepage_url: https://github.com/EarlhamInst/earlham-galaxytools/
 name: ensembl_longest_cds_per_gene
 owner: earlhaminst
-remote_repository_url: https://github.com/TGAC/earlham-galaxytools/tree/master/tools/ensembl_longest_cds_per_gene
+remote_repository_url: https://github.com/EarlhamInst/earlham-galaxytools/tree/main/deprecated/tools/ensembl_longest_cds_per_gene
 description: |
   Select longest CDS per gene from Ensembl CDS FASTA
 categories:

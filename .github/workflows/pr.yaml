@@ -353,7 +353,7 @@ jobs:
   deploy:
     name: Deploy
     needs: [setup, combine_outputs]
-    if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' ) && github.repository_owner == 'TGAC' }}
+    if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' ) && github.repository_owner == 'EarlhamInst' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -390,7 +390,7 @@ jobs:
   deploy-report:
     name: Report deploy status
     needs: [deploy]
-    if: ${{ always() && needs.deploy.result != 'success' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' ) && github.repository_owner == 'TGAC' }}
+    if: ${{ always() && needs.deploy.result != 'success' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' ) && github.repository_owner == 'EarlhamInst' }}
     runs-on: ubuntu-latest
     steps:
     # report to the PR if deployment failed

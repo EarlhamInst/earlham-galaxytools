@@ -37,7 +37,7 @@ run_MultiPEN_slurm.sh CrossValidation ./ '$ExpressionData' '$Interactions' '$Sam
     </tests>
     <help><![CDATA[
 The performance of MultiPEN depends on the lambda parameter. Cross validation is used to select the best lambda, by providing statistics such as the largest connected component, the number of selected features and the area under the curve.
-To see the documentation for MultiPEN visit https://github.com/TGAC/MultiPEN .
+To see the documentation for MultiPEN visit https://github.com/EarlhamInst/MultiPEN .
     ]]></help>
     <citations>
         <citation type="doi">10.1515/sagmb-2014-0045</citation>

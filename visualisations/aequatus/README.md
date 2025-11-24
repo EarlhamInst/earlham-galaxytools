@@ -6,7 +6,7 @@ Install the Aequatus visualisation on a Galaxy instance
 2) If you haven't done that already, clone this Git repository somewhere on the Galaxy instance:
 
    ```
-   git clone --recursive https://github.com/TGAC/earlham-galaxytools
+   git clone --recursive https://github.com/EarlhamInst/earlham-galaxytools
    ```
 
    Instead, if you have already cloned the repository before, update it with:

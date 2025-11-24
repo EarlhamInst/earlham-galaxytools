@@ -62,7 +62,7 @@ We have developed various tools to help with data preparation for the workflow. 
 
 ## Results
 
-The resulting gene families can be visualised using the [Aequatus.js](https://github.com/TGAC/aequatus.js) interactive tool, which is developed as part of the [Aequatus software](https://github.com/TGAC/aequatus) [2].
+The resulting gene families can be visualised using the [Aequatus.js](https://github.com/EarlhamInst/aequatus.js) interactive tool, which is developed as part of the [Aequatus software](https://github.com/EarlhamInst/aequatus) [2].
 
 The Aequatus.js plugin provides an interactive visual representation of the phylogenetic and structural relationships among the homologous genes, using a shared colour scheme for coding regions to represent homology in internal gene structure alongside their corresponding gene trees. It is also able to indicate insertions and deletions in homologous genes with respect to shared ancestors.
 

@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/TGAC/earlham-galaxytools.svg?branch=master)](https://travis-ci.org/TGAC/earlham-galaxytools)
-
 Galaxy tools developed at the Earlham Institute
 ===============================================
 

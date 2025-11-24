@@ -6,5 +6,5 @@ homepage_url: https://www.biologiaevolutiva.org/jcastresana/Gblocks/Gblocks_docu
 name: gblocks
 owner: earlhaminst
 long_description: Selection of conserved blocks from multiple alignments for their use in phylogenetic analysis.
-remote_repository_url: https://github.com/TGAC/earlham-galaxytools/tree/main/tools/gblocks
+remote_repository_url: https://github.com/EarlhamInst/earlham-galaxytools/tree/main/tools/gblocks
 type: unrestricted

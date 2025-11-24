@@ -7,5 +7,5 @@ long_description: |
   Used by the Ensembl Compara GeneTrees pipeline.
 name: hcluster_sg
 owner: earlhaminst
-remote_repository_url: https://github.com/TGAC/earlham-galaxytools/tree/main/tools/hcluster_sg
+remote_repository_url: https://github.com/EarlhamInst/earlham-galaxytools/tree/main/tools/hcluster_sg
 type: unrestricted
