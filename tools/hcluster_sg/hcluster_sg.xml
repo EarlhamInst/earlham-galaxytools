@@ -75,6 +75,6 @@ Used by the `Ensembl Compara GeneTrees`_ pipeline.
 .. _Ensembl Compara GeneTrees: https://www.ensembl.org/info/genome/compara/homology_method.html
     ]]></help>
     <citations>
-        <citation type="doi">https://doi.org/10.1093/gigascience/giy005</citation>
+        <citation type="doi">10.1093/gigascience/giy005</citation>
     </citations>
 </tool>
