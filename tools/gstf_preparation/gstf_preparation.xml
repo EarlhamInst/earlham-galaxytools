@@ -165,6 +165,6 @@ The following features are parsed: **gene**, **mRNA**, **transcript**, **exon**,
 If a value in the **ID** and **Parent** attribute contains a colon, everything up to the first colon will be discarded.
     ]]></help>
     <citations>
-        <citation type="doi">https://doi.org/10.1093/gigascience/giy005</citation>
+        <citation type="doi">10.1093/gigascience/giy005</citation>
     </citations>
 </tool>
