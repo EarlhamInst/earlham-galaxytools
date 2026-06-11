@@ -210,7 +210,7 @@ ${fn}#slurp
 SMPL${i}	${symlink_basename($f)}	a
     #end for
 #else:
-    #for $i, $f in enumerate($inputs.pair_input):
+    #for $f in $inputs.pair_input:
 #set $sample_id = re.sub('[^\w\-_.]', '_', str($f.element_identifier))
 ${sample_id}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.reverse.dataset)}	a
     #end for
