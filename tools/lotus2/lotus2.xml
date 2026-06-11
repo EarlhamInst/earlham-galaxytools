@@ -1,4 +1,4 @@
-<tool id="lotus2" name="LotuS2" version="@VERSION@+galaxy0" profile="20.09">
+<tool id="lotus2" name="LotuS2" version="@VERSION@+galaxy1" profile="20.09">
     <description>fast OTU processing pipeline</description>
     <macros>
         <token name="@VERSION@">2.32</token>
@@ -210,8 +210,9 @@ ${fn}#slurp
 SMPL${i}	${symlink_basename($f)}	a
     #end for
 #else:
-    #for $i, $f in enumerate($inputs.pair_input):
-SMPL${i}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.reverse.dataset)}	a
+    #for $f in $inputs.pair_input:
+#set $sample_id = re.sub('[^\w\-_.]', '_', str($f.element_identifier))
+${sample_id}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.reverse.dataset)}	a
     #end for
 #end if
 ]]></configfile>
@@ -414,12 +415,12 @@ SMPL${i}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.reverse.d
                     </collection>
                 </param>
             </conditional>
-            <param name="map" value="mapping_paired.txt" ftype="tabular" />
             <section name="tax_args">
                 <param name="lulu" value="true" />
             </section>
             <output name="otu" file="OTU_paired.txt" compare="sim_size" />
             <output name="otu_fna" file="OTU_paired.fna" compare="sim_size" />
+            <output name="mapping" file="mapping_paired.txt" />
         </test>
     </tests>
 
