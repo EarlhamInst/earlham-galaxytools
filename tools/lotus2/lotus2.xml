@@ -415,12 +415,12 @@ ${sample_id}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.rever
                     </collection>
                 </param>
             </conditional>
-            <param name="map" value="mapping_paired.txt" ftype="tabular" />
             <section name="tax_args">
                 <param name="lulu" value="true" />
             </section>
             <output name="otu" file="OTU_paired.txt" compare="sim_size" />
             <output name="otu_fna" file="OTU_paired.fna" compare="sim_size" />
+            <output name="mapping" file="mapping_paired.txt" />
         </test>
     </tests>
 
