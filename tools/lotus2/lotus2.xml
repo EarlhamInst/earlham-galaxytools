@@ -1,4 +1,4 @@
-<tool id="lotus2" name="LotuS2" version="@VERSION@+galaxy2" profile="20.09">
+<tool id="lotus2" name="LotuS2" version="@VERSION@+galaxy3" profile="20.09">
     <description>fast OTU processing pipeline</description>
     <macros>
         <token name="@VERSION@">2.32</token>
@@ -38,6 +38,9 @@
     <requirements>
         <requirement type="package" version="@VERSION@">lotus2</requirement>
     </requirements>
+    <required_files>
+        <include path="export_phyloseq_rds.R"/>
+    </required_files>
     <version_command>lotus2 --version</version_command>
     <command detect_errors="exit_code"><![CDATA[
 #import re
@@ -81,8 +84,8 @@ mkdir input
     #end for
 #else:
     #for $f in $inputs.pair_input:
-        ln -s '$f.forward' 'input/${symlink_basename($f.forward.dataset)}' &&
-        ln -s '$f.reverse' 'input/${symlink_basename($f.reverse.dataset)}' &&
+        ln -s '$f.forward' 'input/${symlink_basename($f.forward)}' &&
+        ln -s '$f.reverse' 'input/${symlink_basename($f.reverse)}' &&
     #end for
 #end if
 
@@ -97,13 +100,13 @@ mkdir input
     #set map = $generated_mapping
 #end if
 
-set +e &&
-
+set +e
+&&
 lotus2
 -i input/
 -o output
 -tmpDir tmp_folder
--threads "\${GALAXY_SLOTS:-1}"
+-threads "\${GALAXY_SLOTS:-2}"
 -map '$map'
 #if $other_opts.sdmopt:
     -sdmopt '$other_opts.sdmopt'
@@ -191,8 +194,9 @@ lotus2
 #if $tax_args.taxExcludeGrep:
     -taxExcludeGrep '$tax_args.taxExcludeGrep'
 #end if
-; EXIT_VALUE=\$? ;
-
+&&
+Rscript '$__tool_directory__/export_phyloseq_rds.R';
+EXIT_VALUE=\$? ;
 zip -8 -r -v output.zip output/
 &&
 exit \$EXIT_VALUE
@@ -200,6 +204,7 @@ exit \$EXIT_VALUE
     <configfiles>
         <configfile name="generated_mapping"><![CDATA[#slurp
 #import re
+#set $tab = '\t'
 #def sanitize($s):
 ${re.sub('[^\w\-_.]', '_', $s)}#slurp
 #end def
@@ -210,14 +215,14 @@ ${sanitize($f.name)}#slurp
     #set $sample_id = getattr($f, 'element_identifier', None) or $f.name
 ${sanitize($sample_id)}#slurp
 #end def
-#SampleID	fastqFile	SequencingRun
+#SampleID${tab}fastqFile${tab}SequencingRun
 #if $inputs.paired_or_single == 'single':
-    #for $i, $f in enumerate($inputs.input):
-${sample_identifier($f)}	${symlink_basename($f)}	a
+    #for $f in $inputs.input:
+${sample_identifier($f)}${tab}${symlink_basename($f)}${tab}a
     #end for
 #else:
     #for $f in $inputs.pair_input:
-${sample_identifier($f)}	${symlink_basename($f.forward.dataset)},${symlink_basename($f.reverse.dataset)}	a
+${sample_identifier($f)}${tab}${symlink_basename($f.forward)},${symlink_basename($f.reverse)}${tab}a
     #end for
 #end if
 ]]></configfile>
@@ -382,6 +387,7 @@ ${sample_identifier($f)}	${symlink_basename($f.forward.dataset)},${symlink_basen
         <data name="OTUphylo_nwk" format="newick" label="${tool.name} on ${on_string}: Newick-formatted phylogenetic tree between sequences" from_work_dir="output/OTUphylo.nwk" />
         <data name="mapping" format="tabular" label="${tool.name} on ${on_string}: mapping file" from_work_dir="output/primary/in.map" />
         <data name="runlog" format="txt" label="${tool.name} on ${on_string}: main log file" from_work_dir="output/LotuSLogS/LotuS_run.log" />
+        <data name="phyloseq" format="phyloseq" label="${tool.name} on ${on_string}: phyloseq object" from_work_dir="output/phyloseq.rds" />
     </outputs>
 
     <tests>
@@ -408,6 +414,11 @@ ${sample_identifier($f)}	${symlink_basename($f.forward.dataset)},${symlink_basen
                 </assert_contents>
             </output>
             <output name="mapping" file="mapping.txt" compare="diff" />
+            <output name="phyloseq">
+                <assert_contents>
+                    <has_size min="1" />
+                </assert_contents>
+            </output>
         </test>
         <test>
             <conditional name="inputs">
@@ -438,6 +449,11 @@ ${sample_identifier($f)}	${symlink_basename($f.forward.dataset)},${symlink_basen
                 </assert_contents>
             </output>
             <output name="mapping" file="mapping_paired.txt" compare="diff" />
+            <output name="phyloseq">
+                <assert_contents>
+                    <has_size min="1" />
+                </assert_contents>
+            </output>
         </test>
     </tests>
 
